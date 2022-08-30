@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/comp426-2022-fall/a01-jusurkin3/issues"
   },
-  "homepage": "https://github.com/comp426-2022-fall/a01-jusurkin3#readme"
+  "homepage": "https://github.com/comp426-2022-fall/a01-jusurkin3#readme",
+  "dependencies": {
+    "minimalist": "^1.0.0"
+  }
 }
