@@ -2,29 +2,29 @@
 const http = require('http');
 // Require fs module
 const fs = require('fs');
-const args = require('minimalist')(process.argv.slice(2));
+//var arg = require('minimalist')(process.argv.slice(2));
 
-const port = args.port || 3000;
-
-var content;
-fs.readFile('./public/index.html', 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-   content = data;
-});
+//  (process.argv.slice(2))
+const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  
-  res.end(content);
+	res.statusCode = 200;
+	
+	fs.readFile('./public/index.html', 'utf8', (err, data) => {
+		if (err) {
+		console.error(err);
+		return;
+	}
 
-  server.listen(port, () => {
+	res.setHeader('Content-Type', 'text/html');
+	res.end(data);
+
+	}); 
+});
+ 
+ server.listen(port, () => {
     console.log(`Server running on port ${port}`)
   });
-});
 
 // Require minimist module (make sure you install this one via npm).
 
@@ -58,8 +58,6 @@ const server = http.createServer((req, res) => {
 
 // Start the `server` const listening on the port defined by argument in your `port` const. 
 // Put the exact message `Server listening on port ${port}` on the console log. 
-
-
 
 
 // That's it! You're all done!
