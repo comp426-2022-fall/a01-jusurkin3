@@ -12,7 +12,7 @@ fs.readFile('./public/index.html', 'utf8', (err, data) => {
       console.error(err);
       return;
     }
-   content = data ;
+   content = data;
 });
 
 const server = http.createServer((req, res) => {
@@ -22,9 +22,9 @@ const server = http.createServer((req, res) => {
   res.end(content);
 
   server.listen(port, () => {
-    console.log(`Server running at port ${port}`)
+    console.log(`Server running on port ${port}`)
   });
-;
+});
 
 // Require minimist module (make sure you install this one via npm).
 
