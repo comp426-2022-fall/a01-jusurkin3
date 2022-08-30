@@ -2,20 +2,20 @@
 const http = require('http');
 // Require fs module
 const fs = require('fs');
-//var arg = require('minimalist')(process.argv.slice(2));
+//var arg = require('minimalist');
 
-//  (process.argv.slice(2))
-const port = process.env.PORT || 3000;
+//process.argv.slice(2)
+const port = process.env.PORT || 8080;
 
 const server = http.createServer((req, res) => {
-	res.statusCode = 200;
-	
+	console.log("we made it this far");
+	res.statusCode = 200;	
 	fs.readFile('./public/index.html', 'utf8', (err, data) => {
-		if (err) throw err//{
+		if (err) { throw new Error(err.message); }//{
 		//console.error(err);
 		//return;
 	//}
-
+	console.log(data);
 	res.setHeader('Content-Type', 'text/html');
 	res.end(data);
 
