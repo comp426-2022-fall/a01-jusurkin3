@@ -2,24 +2,29 @@
 const http = require('http');
 // Require fs module
 const fs = require('fs');
-const port = process.env.PORT || 3000;
+const args = require('minimalist')(process.argv.slice(2));
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'text/html')
-	
-  fs.readFile('./public/index.html', 'utf8', (err, data) => {
+const port = args.port || 3000;
+
+var content;
+fs.readFile('./public/index.html', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return;
     }
-    res.end(data);			
-  });
+   content = data ;
+});
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  
+  res.end(content);
 
   server.listen(port, () => {
-  	console.log(`Server running at port ${port}`)
+    console.log(`Server running at port ${port}`)
   })
-)
+);
 
 // Require minimist module (make sure you install this one via npm).
 
