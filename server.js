@@ -11,10 +11,10 @@ const server = http.createServer((req, res) => {
 	res.statusCode = 200;
 	
 	fs.readFile('./public/index.html', 'utf8', (err, data) => {
-		if (err) {
-		console.error(err);
-		return;
-	}
+		if (err) throw err//{
+		//console.error(err);
+		//return;
+	//}
 
 	res.setHeader('Content-Type', 'text/html');
 	res.end(data);
