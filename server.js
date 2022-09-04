@@ -9,7 +9,7 @@ const port = args.port || process.env.PORT || 3000;
 const server = http.createServer((req, res) => {
 	//console.log("hi");
 	res.statusCode = 200;	
-	fs.readFile('/Users/juliannasurkin/comp426-workspace/a01-jusurkin3/public/index.html', 'utf8', (err, data) => {
+	fs.readFile('./public/index.html', 'utf8', (err, data) => {
 		if (err) {
 			console.error(err);
 			return;
