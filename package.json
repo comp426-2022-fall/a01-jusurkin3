@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/comp426-2022-fall/a01-jusurkin3#readme",
   "dependencies": {
-    "minimalist": "^1.0.0"
+    "minimalist": "^1.0.0",
+    "minimist": "^1.2.6"
   }
 }
